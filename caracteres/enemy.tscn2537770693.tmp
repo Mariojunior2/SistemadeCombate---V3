@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://cioijhurm3hwv"]
+
+[ext_resource type="Script" uid="uid://cde3qshh2dt1q" path="res://caracteres/enemy.gd" id="1_3rh35"]
+[ext_resource type="Texture2D" uid="uid://c2frorfutmlpy" path="res://caracteres/MainCharacter(FreePack)/robo.png" id="1_c60sh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3rh35"]
+radius = 30.8707
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1phbd"]
+atlas = ExtResource("1_c60sh")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k53wm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1phbd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rocpj"]
+radius = 41.0488
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rh35"]
+size = Vector2(304, 20)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_3rh35")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3rh35")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 4)
+scale = Vector2(0.0917969, 0.110352)
+sprite_frames = SubResource("SpriteFrames_k53wm")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_rocpj")
+
+[node name="HitBoxDamage" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxDamage"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_3rh35")

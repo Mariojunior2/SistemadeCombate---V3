@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfm8ihn0lcafa"]
+
+[ext_resource type="PackedScene" uid="uid://beu2frm0ep0gg" path="res://caracteres/character_body_2d.tscn" id="1_8a1dw"]
+[ext_resource type="PackedScene" uid="uid://cioijhurm3hwv" path="res://caracteres/enemy.tscn" id="2_37cc2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8a1dw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37cc2"]
+size = Vector2(5543, 862)
+
+[node name="word1" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_8a1dw")]
+position = Vector2(25, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_8a1dw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(655, 821)
+shape = SubResource("RectangleShape2D_37cc2")
+
+[node name="Enemy" parent="." groups=["enemy_attack"] instance=ExtResource("2_37cc2")]
+position = Vector2(259, 336)
+max_health = null
+normal_speed = null
+alert_speed = null
+enraged_speed = null
+attack_range = null
+damage_amount = null

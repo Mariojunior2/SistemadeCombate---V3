@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ymysv44exvxq"]
+
+[ext_resource type="Script" uid="uid://byahkkt5hmc31" path="res://armas/arma_1.gd" id="1_b06pg"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hmy2f"]
+load_path = "res://.godot/imported/arma1.png-9bfa422d07ccc048e86c8ef9ca8918ba.ctex"
+
+[node name="Arma" type="Node2D"]
+script = ExtResource("1_b06pg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7, -3)
+scale = Vector2(0.0335, 0.0275)
+texture = SubResource("CompressedTexture2D_hmy2f")
